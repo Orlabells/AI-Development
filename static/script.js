@@ -5,15 +5,12 @@ function sendCommand() {
 
     if (message === "") return;
 
-    // 1. Add User Message
     appendMessage(message, 'user-msg');
     input.value = "";
 
-    // 2. Start Thinking Animation
     core.classList.remove('idle');
     core.classList.add('thinking');
 
-    // 3. Call Flask API
     fetch("/command", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -22,7 +19,7 @@ function sendCommand() {
     .then(res => res.json())
     .then(data => {
         appendMessage(data.response, 'bot-msg');
-        // Stop thinking animation
+
         core.classList.remove('thinking');
         core.classList.add('idle');
     })
@@ -40,12 +37,9 @@ function appendMessage(text, className) {
     msgDiv.className = className;
     msgDiv.innerText = text;
     chatbox.appendChild(msgDiv);
-
-    // Auto-scroll to bottom
     chatbox.scrollTop = chatbox.scrollHeight;
 }
 
-// Allow "Enter" key to send message
 document.getElementById('command').addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
         sendCommand();

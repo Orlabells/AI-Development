@@ -120,7 +120,6 @@ button:hover {
     50% { opacity: 0.3; }
 }
 
-/* Core Positioning */
 .core-wrapper {
     display: flex;
     justify-content: center;
@@ -137,7 +136,6 @@ button:hover {
     transition: all 0.5s ease;
 }
 
-/* The Glowing Center */
 .core-light {
     width: 30px;
     height: 30px;
@@ -147,7 +145,6 @@ button:hover {
     z-index: 2;
 }
 
-/* The Rotating Outer Ring */
 .inner-ring {
     position: absolute;
     width: 60px;
@@ -158,9 +155,8 @@ button:hover {
     opacity: 0.6;
 }
 
-/* Animation: Thinking State */
 #jarvis-core.thinking .inner-ring {
-    animation: rotate 1s linear infinite; /* Speeds up when thinking */
+    animation: rotate 1s linear infinite; 
     border-style: solid;
     border-top-color: transparent;
 }
@@ -169,7 +165,6 @@ button:hover {
     animation: pulse 0.8s ease-in-out infinite alternate;
 }
 
-/* Keyframes */
 @keyframes rotate {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
